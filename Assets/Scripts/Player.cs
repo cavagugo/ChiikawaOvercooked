@@ -6,7 +6,11 @@ public class Player : MonoBehaviour
 {
     [SerializeField] private float moveSpeed = 7f;
     [SerializeField] private GameInput gameInput;
+    [SerializeField] private float interactDistance = 2f;
+    [SerializeField] private LayerMask countersLayerMask;
+
     private bool isWalking;
+    private Vector3 lastInteractDir;
     // Start is called before the first frame update
     void Start()
     {
@@ -15,6 +19,17 @@ public class Player : MonoBehaviour
 
     // Update is called once per frame
     void Update()
+    {
+        HandleMovement();
+        HandleInteractions();
+    }
+
+    public bool IsWalking()
+    {
+        return isWalking;
+    }
+
+    private void HandleMovement()
     {
         Vector2 inputVector = gameInput.GetMovementVectorNormalized();
 
@@ -62,16 +77,34 @@ public class Player : MonoBehaviour
         {
             transform.position += moveDir * moveDistance;
         }
-        
+
 
         isWalking = moveDir != Vector3.zero;
 
         float rotateSpeed = 10f;
-        transform.forward = Vector3.Slerp(transform.forward,moveDir, Time.deltaTime * rotateSpeed);
+        transform.forward = Vector3.Slerp(transform.forward, moveDir, Time.deltaTime * rotateSpeed);
     }
 
-    public bool IsWalking()
+    private void HandleInteractions()
     {
-        return isWalking;
+        Vector2 inputVector = gameInput.GetMovementVectorNormalized();
+
+        Vector3 moveDir = new Vector3(inputVector.x, 0f, inputVector.y);
+
+        //Ayuda a guardar la última interacción, ya que al dejar de moverse, no se lanza el rayo.
+        if (moveDir != Vector3.zero)
+        {
+            lastInteractDir = moveDir;
+        }
+
+        //Con out RaycastHit raycastHit obtenemos el objeto que apunta el rayo (en caso de que choque con algo)
+        if (Physics.Raycast(transform.position, lastInteractDir, out RaycastHit raycastHit, interactDistance, countersLayerMask))
+        {
+            if (raycastHit.transform.TryGetComponent(out ClearCounter clearCounter))
+            {
+                //Tiene ClearCunter
+                clearCounter.Interact();
+            }
+        }
     }
 }

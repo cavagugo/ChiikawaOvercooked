@@ -46,6 +46,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 7
+  gameInput: {fileID: 0}
+  interactDistance: 2
+  countersLayerMask:
+    serializedVersion: 2
+    m_Bits: 64
 --- !u!1001 &7486978409198747096
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -62,7 +67,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: b757a47eb351c6444b4a4f943beb57c4,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 0.05
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: b757a47eb351c6444b4a4f943beb57c4,
         type: 3}
