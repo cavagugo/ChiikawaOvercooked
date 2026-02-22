@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b886ac8bc9cc0174a9213afba04e5b21, type: 3}
+  m_Name: Peach
+  m_EditorClassIdentifier: 
+  prefab: {fileID: 4931414286319970215, guid: 3eca0cfbcae4aae4b9fad52b4f16384e, type: 3}
+  sprite: {fileID: 0}
+  objectName: Peach

@@ -415,6 +415,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 328919443431771000, guid: 904ec926069abf94397c71fa50180b13,
+        type: 3}
+      propertyPath: blueberryPrefab
+      value: 
+      objectReference: {fileID: 4931414286319970215, guid: 3eca0cfbcae4aae4b9fad52b4f16384e,
+        type: 3}
+    - target: {fileID: 328919443431771000, guid: 904ec926069abf94397c71fa50180b13,
+        type: 3}
+      propertyPath: kitchenObjectSO
+      value: 
+      objectReference: {fileID: 11400000, guid: 5c1e26ee73e266445b345ebe05d3441d,
+        type: 2}
     - target: {fileID: 6203007588076269567, guid: 904ec926069abf94397c71fa50180b13,
         type: 3}
       propertyPath: m_LocalPosition.x
