@@ -6,6 +6,7 @@ public class PlayerAnimator : MonoBehaviour
 {
     [SerializeField] private Player player;
     private const string IS_WALKING = "isWalking";
+    private const string IS_HOLDING = "isHolding";
     private Animator animator;
     private void Awake()
     {
@@ -15,5 +16,6 @@ public class PlayerAnimator : MonoBehaviour
     private void Update()
     {
         animator.SetBool(IS_WALKING, player.IsWalking());
+        animator.SetBool(IS_HOLDING, player.HasKitchenObject());           
     }
 }

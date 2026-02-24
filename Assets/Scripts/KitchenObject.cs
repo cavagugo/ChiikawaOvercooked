@@ -5,33 +5,34 @@ using UnityEngine;
 public class KitchenObject : MonoBehaviour
 {
     [SerializeField] private KitchenObjectSO kitchenObjectSO;
-    private ClearCounter clearCounter;
+
+    private IKitchenObjectParent kitchenObjectParent;
 
     public KitchenObjectSO GetKitchenObjectSO() { return kitchenObjectSO; }
 
-    //Hacer que cambie de parent/mesa. El parametro que recibe es la nueva mesa
-    public void SetClearCounter(ClearCounter clearCounter)
+    //Hacer que cambie de parent (jugador o mesa). El parametro que recibe es el nuevo padre
+    public void SetKitchenObjectParent(IKitchenObjectParent kitchenObjectParent)
     {
-        //Vamos a la mesa/padre actual y la limpiamos/liberamos
-        if (this.clearCounter != null)
+        //Vamos al padre actual y la limpiamos/liberamos
+        if (this.kitchenObjectParent != null)
         {
-            this.clearCounter.ClearKitchenObject();
+            this.kitchenObjectParent.ClearKitchenObject();
         }
-        //Vamos a la nueva mesa y ponemos el objeto que estaba en la mesa anterior
-        this.clearCounter = clearCounter;
+        //Vamos al nuevo padre y ponemos el objeto que estaba en el padre anterior
+        this.kitchenObjectParent = kitchenObjectParent;
 
-        if (clearCounter.HasKitchenObject())
+        if (kitchenObjectParent.HasKitchenObject())
         {
-            Debug.LogError("La mesa ya tiene un KitchenObject");
+            Debug.LogError("IKitchenObjectParent ya tiene un KitchenObject");
         }
-        clearCounter.SetKitchenObject(this);
-        //Poner el objeto en dicha mesa (visualmente)
-        transform.parent = clearCounter.GetKitchenObjectFollowTransform();
+        kitchenObjectParent.SetKitchenObject(this);
+        //Poner el objeto en dicho padre (visualmente)
+        transform.parent = kitchenObjectParent.GetKitchenObjectFollowTransform();
         //Nos aseguramos que esté bien colocado.
         transform.localPosition = Vector3.zero;
     }
-    public ClearCounter GetClearCounter()
+    public IKitchenObjectParent GetKitchenObjectParent()
     {
-        return clearCounter;
+        return kitchenObjectParent;
     }
 }
