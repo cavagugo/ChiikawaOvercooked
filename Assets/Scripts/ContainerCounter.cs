@@ -12,12 +12,19 @@ public class ContainerCounter : BaseCounter
 
     public override void Interact(Player player)
     {
-        //Instanciamos el prefab y se lo da al jugador
-        Transform kitchenObjectTransform = Instantiate(kitchenObjectSO.prefab);
-        kitchenObjectTransform.GetComponent<KitchenObject>().SetKitchenObjectParent(player);
+        //El jugador no tiene nada y le da un objeto
+        if (!player.HasKitchenObject())
+        {
+            //Instanciamos el prefab y se lo da al jugador
+            Transform kitchenObjectTransform = Instantiate(kitchenObjectSO.prefab);
+            kitchenObjectTransform.localPosition = Vector3.zero;
+            kitchenObjectTransform.GetComponent<KitchenObject>().SetKitchenObjectParent(player);
+            
 
-        //Se llama al evento
-        OnPlayerGrabbedObject?.Invoke(this, EventArgs.Empty);
+            //Se llama al evento
+            OnPlayerGrabbedObject?.Invoke(this, EventArgs.Empty);
+        }
+
     }
 
     

@@ -17,7 +17,6 @@ public class Player : MonoBehaviour, IKitchenObjectParent
 
     [SerializeField] private float moveSpeed = 7f;
     [SerializeField] private GameInput gameInput;
-    [SerializeField] private float interactDistance = 2f;
     [SerializeField] private LayerMask countersLayerMask;
     [SerializeField] private Transform kitchenObjectHoldPoint;
 
@@ -79,7 +78,7 @@ public class Player : MonoBehaviour, IKitchenObjectParent
             //No se puede mover en moveDir (permite movimiento diagonal al colisionar con un objeto)
 
             //Intentar solo movimiento en X
-            Vector3 moveDirX = new Vector3(moveDir.x, 0f, 0f).normalized; //.normalized para que tenga la misma velocidad que si presionara solo A/D
+            Vector3 moveDirX = new Vector3(moveDir.x, 0, 0).normalized; //.normalized para que tenga la misma velocidad que si presionara solo A/D
             canMove = !Physics.CapsuleCast(transform.position, transform.position + Vector3.up * playerHeight, playerRadius, moveDirX, moveDistance);
             if (canMove)
             {
@@ -91,7 +90,7 @@ public class Player : MonoBehaviour, IKitchenObjectParent
                 //No se puede mover solo en X
 
                 //Intentar en movimiento solo Z
-                Vector3 moveDirZ = new Vector3(0f, 0f, moveDir.z).normalized;
+                Vector3 moveDirZ = new Vector3(0, 0, moveDir.z).normalized;
                 canMove = !Physics.CapsuleCast(transform.position, transform.position + Vector3.up * playerHeight, playerRadius, moveDirZ, moveDistance);
 
                 if (canMove)
@@ -115,6 +114,7 @@ public class Player : MonoBehaviour, IKitchenObjectParent
 
         float rotateSpeed = 10f;
         transform.forward = Vector3.Slerp(transform.forward, moveDir, Time.deltaTime * rotateSpeed);
+        //Debug.Log(moveDir);
     }
 
     private void HandleInteractions()
@@ -128,7 +128,8 @@ public class Player : MonoBehaviour, IKitchenObjectParent
         {
             lastInteractDir = moveDir;
         }
-
+        
+        float interactDistance = 2f;
         //Con out RaycastHit raycastHit obtenemos el objeto que apunta el rayo (en caso de que choque con algo)
         if (Physics.Raycast(transform.position, lastInteractDir, out RaycastHit raycastHit, interactDistance, countersLayerMask))
         {
@@ -143,7 +144,7 @@ public class Player : MonoBehaviour, IKitchenObjectParent
             }
             else
             {
-                //En caso de que haya algo pero no sea un ClearCounter
+                //En caso de que haya algo pero no sea un counter
                 SetSelectedCounter(null);
             }
         }

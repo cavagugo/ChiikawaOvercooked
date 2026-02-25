@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: Peach
   m_EditorClassIdentifier: 
   prefab: {fileID: 4931414286319970215, guid: 3eca0cfbcae4aae4b9fad52b4f16384e, type: 3}
-  sprite: {fileID: 0}
+  sprite: {fileID: 21300000, guid: ad5ebea08feac1b4885cff8718533eed, type: 3}
   objectName: Peach
