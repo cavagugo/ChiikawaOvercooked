@@ -9,9 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b886ac8bc9cc0174a9213afba04e5b21, type: 3}
-  m_Name: BlueberrySlices
+  m_Script: {fileID: 11500000, guid: 2fd513b5e94f6294b8c3671ac62cf49e, type: 3}
+  m_Name: Blueberry-BlueberrySlices
   m_EditorClassIdentifier: 
-  prefab: {fileID: 5342048224319183748, guid: 134f838e4f8cd75439c919e0469793ab, type: 3}
-  sprite: {fileID: 0}
-  objectName: Blueberry Slices
+  input: {fileID: 11400000, guid: 206c8e16bf0bb064aa6344fe24195a75, type: 2}
+  output: {fileID: 11400000, guid: 9cacb7df531500d4e90d4d7da7ab58aa, type: 2}
