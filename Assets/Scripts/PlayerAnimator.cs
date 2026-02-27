@@ -16,6 +16,7 @@ public class PlayerAnimator : MonoBehaviour
     private void Update()
     {
         animator.SetBool(IS_WALKING, player.IsWalking());
-        animator.SetBool(IS_HOLDING, player.HasKitchenObject());           
+        animator.SetBool(IS_HOLDING, player.HasKitchenObject()); 
     }
+
 }

@@ -12,6 +12,8 @@ public class CuttingCounter : BaseCounter
         public float progressNormalized; //float porque el Image.fillAmount va de 0 a 1.
     }
 
+    public event EventHandler OnCut;
+
 
     [SerializeField] private CuttingRecipeSO[] cuttingRecipeSOArray;
 
@@ -68,6 +70,7 @@ public class CuttingCounter : BaseCounter
         {
             cuttingProgress++;
 
+            OnCut?.Invoke(this, EventArgs.Empty);
             CuttingRecipeSO cuttingRecipeSO = GetCuttingRecipeSOWithInput(GetKitchenObject().GetKitchenObjectSO());
 
             OnProgressChanged?.Invoke(this, new OnProgressChangedEventArgs
