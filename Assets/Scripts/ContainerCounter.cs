@@ -16,10 +16,8 @@ public class ContainerCounter : BaseCounter
         if (!player.HasKitchenObject())
         {
             //Instanciamos el prefab y se lo da al jugador
-            Transform kitchenObjectTransform = Instantiate(kitchenObjectSO.prefab);
-            kitchenObjectTransform.localPosition = Vector3.zero;
-            kitchenObjectTransform.GetComponent<KitchenObject>().SetKitchenObjectParent(player);
-            
+            KitchenObject.SpawnKitchenObject(kitchenObjectSO, player);
+
 
             //Se llama al evento
             OnPlayerGrabbedObject?.Invoke(this, EventArgs.Empty);
