@@ -3,12 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [CreateAssetMenu()]
-public class BakingRecipeSO : ScriptableObject
+public class BurningRecipeSO : ScriptableObject
 {
-    //Al meter input en el horno y esperar un tiempo, recibimos output
+    //Al dejar mucho tiempo input, recibimos output
     public KitchenObjectSO input;
     public KitchenObjectSO output;
 
 
-    public float bakingTimerMax;
+    public float burningTimerMax;
 }

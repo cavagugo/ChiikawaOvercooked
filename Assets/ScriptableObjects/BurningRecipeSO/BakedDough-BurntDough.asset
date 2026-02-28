@@ -9,9 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 47ae48e19111a8a428f15b89255028e1, type: 3}
-  m_Name: RawDough-BakedDough
+  m_Script: {fileID: 11500000, guid: 9fb41b6fad0b2264a8da5c24c5888363, type: 3}
+  m_Name: BakedDough-BurntDough
   m_EditorClassIdentifier: 
-  input: {fileID: 11400000, guid: 2c300ea28aaa34a4fb5d176cc0c18aa7, type: 2}
-  output: {fileID: 11400000, guid: 6a73f8de5fb3070489f26c33b4b03945, type: 2}
-  bakingTimerMax: 4
+  input: {fileID: 11400000, guid: 6a73f8de5fb3070489f26c33b4b03945, type: 2}
+  output: {fileID: 11400000, guid: c7130bb8ad15cb54e972d46cb946a9e4, type: 2}
+  burningTimerMax: 6
