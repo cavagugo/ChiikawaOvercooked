@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &3838418807157739984
+--- !u!1 &8247316244800723401
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,113 +8,103 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 5342048224319183748}
-  - component: {fileID: 1966135750984252676}
+  - component: {fileID: 4931414286319970215}
+  - component: {fileID: -756206389026808151}
   m_Layer: 0
-  m_Name: BlueberrySlicesPrefab
+  m_Name: BakedDoughPrefab
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &5342048224319183748
+--- !u!4 &4931414286319970215
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3838418807157739984}
+  m_GameObject: {fileID: 8247316244800723401}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 7190891957652720208}
+  - {fileID: 7534274553821250356}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1966135750984252676
+--- !u!114 &-756206389026808151
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3838418807157739984}
+  m_GameObject: {fileID: 8247316244800723401}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a236ab6d2613b5e4483f921dde4acfd9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  kitchenObjectSO: {fileID: 11400000, guid: 9cacb7df531500d4e90d4d7da7ab58aa, type: 2}
---- !u!1001 &3435780167905472900
+  kitchenObjectSO: {fileID: 11400000, guid: 6a73f8de5fb3070489f26c33b4b03945, type: 2}
+--- !u!1001 &3237081122723418256
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 5342048224319183748}
+    m_TransformParent: {fileID: 4931414286319970215}
     m_Modifications:
-    - target: {fileID: 1248903435941863300, guid: 7705567e228f767469500193ece869d0,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2299427404602406042, guid: 7705567e228f767469500193ece869d0,
+    - target: {fileID: 2447196406639629656, guid: a1eed8edc01f65d469509e4cec5e2582,
         type: 3}
       propertyPath: m_Name
-      value: BlueberrySlicesVisual
+      value: BakedDoughVisual
       objectReference: {fileID: 0}
-    - target: {fileID: 3903558718926717405, guid: 7705567e228f767469500193ece869d0,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5504940229889162196, guid: 7705567e228f767469500193ece869d0,
+    - target: {fileID: 4927908760343188388, guid: a1eed8edc01f65d469509e4cec5e2582,
         type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5504940229889162196, guid: 7705567e228f767469500193ece869d0,
+    - target: {fileID: 4927908760343188388, guid: a1eed8edc01f65d469509e4cec5e2582,
         type: 3}
       propertyPath: m_LocalPosition.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5504940229889162196, guid: 7705567e228f767469500193ece869d0,
+    - target: {fileID: 4927908760343188388, guid: a1eed8edc01f65d469509e4cec5e2582,
         type: 3}
       propertyPath: m_LocalPosition.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5504940229889162196, guid: 7705567e228f767469500193ece869d0,
+    - target: {fileID: 4927908760343188388, guid: a1eed8edc01f65d469509e4cec5e2582,
         type: 3}
       propertyPath: m_LocalRotation.w
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 5504940229889162196, guid: 7705567e228f767469500193ece869d0,
+    - target: {fileID: 4927908760343188388, guid: a1eed8edc01f65d469509e4cec5e2582,
         type: 3}
       propertyPath: m_LocalRotation.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5504940229889162196, guid: 7705567e228f767469500193ece869d0,
+    - target: {fileID: 4927908760343188388, guid: a1eed8edc01f65d469509e4cec5e2582,
         type: 3}
       propertyPath: m_LocalRotation.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5504940229889162196, guid: 7705567e228f767469500193ece869d0,
+    - target: {fileID: 4927908760343188388, guid: a1eed8edc01f65d469509e4cec5e2582,
         type: 3}
       propertyPath: m_LocalRotation.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5504940229889162196, guid: 7705567e228f767469500193ece869d0,
+    - target: {fileID: 4927908760343188388, guid: a1eed8edc01f65d469509e4cec5e2582,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5504940229889162196, guid: 7705567e228f767469500193ece869d0,
+    - target: {fileID: 4927908760343188388, guid: a1eed8edc01f65d469509e4cec5e2582,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5504940229889162196, guid: 7705567e228f767469500193ece869d0,
+    - target: {fileID: 4927908760343188388, guid: a1eed8edc01f65d469509e4cec5e2582,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
@@ -123,10 +113,10 @@ PrefabInstance:
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 7705567e228f767469500193ece869d0, type: 3}
---- !u!4 &7190891957652720208 stripped
+  m_SourcePrefab: {fileID: 100100000, guid: a1eed8edc01f65d469509e4cec5e2582, type: 3}
+--- !u!4 &7534274553821250356 stripped
 Transform:
-  m_CorrespondingSourceObject: {fileID: 5504940229889162196, guid: 7705567e228f767469500193ece869d0,
+  m_CorrespondingSourceObject: {fileID: 4927908760343188388, guid: a1eed8edc01f65d469509e4cec5e2582,
     type: 3}
-  m_PrefabInstance: {fileID: 3435780167905472900}
+  m_PrefabInstance: {fileID: 3237081122723418256}
   m_PrefabAsset: {fileID: 0}
