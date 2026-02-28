@@ -3,9 +3,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class FurnaceCounter : BaseCounter
+public class FurnaceCounter : BaseCounter, IHasProgress
 {
+    //Hacer referencia a los argumentos de la interface
+    public event EventHandler<IHasProgress.OnProgressChangedEventArgs> OnProgressChanged;
 
+
+    //Para la animación de la puerta
+    public event EventHandler OnPlayerGrabbedOrPlacedObject;
+
+    //Para la bandeja
     public event EventHandler<OnStateChangedEventArgs> OnStateChanged;
     public class OnStateChangedEventArgs : EventArgs
     {
@@ -45,6 +52,14 @@ public class FurnaceCounter : BaseCounter
                 case State.Baking:
                     bakingTimer += Time.deltaTime;
 
+
+                    OnProgressChanged?.Invoke(this, new IHasProgress.OnProgressChangedEventArgs
+                    {
+                        progressNormalized = bakingTimer / bakingRecipeSO.bakingTimerMax
+                    });
+
+
+
                     if (bakingTimer > bakingRecipeSO.bakingTimerMax) //Si el tiempo de horneado es más grande que el tiempo máximo
                     {
                         //La masa está horneada                        
@@ -63,6 +78,12 @@ public class FurnaceCounter : BaseCounter
                 case State.Baked:
                     burningTimer += Time.deltaTime;
 
+                    OnProgressChanged?.Invoke(this, new IHasProgress.OnProgressChangedEventArgs
+                    {
+                        progressNormalized = burningTimer / burningRecipeSO.burningTimerMax
+                    });
+
+
                     if (burningTimer > burningRecipeSO.burningTimerMax) //Se empieza a quemar
                     {
                         //La masa está quemada                     
@@ -74,6 +95,12 @@ public class FurnaceCounter : BaseCounter
                         OnStateChanged?.Invoke(this, new OnStateChangedEventArgs
                         {
                             state = state
+                        });
+
+
+                        OnProgressChanged?.Invoke(this, new IHasProgress.OnProgressChangedEventArgs
+                        {
+                            progressNormalized = 0f
                         });
                     }
                     break;
@@ -93,6 +120,8 @@ public class FurnaceCounter : BaseCounter
                 //El item se puede hornear, entonces lo pone
                 if (HasRecipeWithInput(player.GetKitchenObject().GetKitchenObjectSO()))
                 {
+                    OnPlayerGrabbedOrPlacedObject?.Invoke(this, EventArgs.Empty);
+
                     player.GetKitchenObject().SetKitchenObjectParent(this);
                     bakingRecipeSO = GetBakingRecipeSOWithInput(GetKitchenObject().GetKitchenObjectSO());
 
@@ -103,8 +132,13 @@ public class FurnaceCounter : BaseCounter
                     {
                         state = state
                     });
-                }
 
+                    //Se actualiza el progreso después de resetear el timer.
+                    OnProgressChanged?.Invoke(this, new IHasProgress.OnProgressChangedEventArgs
+                    {
+                        progressNormalized = bakingTimer / bakingRecipeSO.bakingTimerMax
+                    });
+                }
             }
             else
             {
@@ -121,12 +155,19 @@ public class FurnaceCounter : BaseCounter
             else
             {
                 //El jugador no tiene nada, saca el objeto del horno
+                OnPlayerGrabbedOrPlacedObject?.Invoke(this, EventArgs.Empty);
+
                 GetKitchenObject().SetKitchenObjectParent(player);
                 state = State.Idle; //Reseteamos el estado del horno
 
                 OnStateChanged?.Invoke(this, new OnStateChangedEventArgs
                 {
                     state = state
+                });
+
+                OnProgressChanged?.Invoke(this, new IHasProgress.OnProgressChangedEventArgs
+                {
+                    progressNormalized = 0f
                 });
             }
         }

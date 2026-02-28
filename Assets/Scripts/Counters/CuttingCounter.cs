@@ -3,14 +3,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CuttingCounter : BaseCounter
+public class CuttingCounter : BaseCounter, IHasProgress
 {
 
-    public event EventHandler<OnProgressChangedEventArgs> OnProgressChanged;
-    public class OnProgressChangedEventArgs : EventArgs
-    {
-        public float progressNormalized; //float porque el Image.fillAmount va de 0 a 1.
-    }
+    //Hacer referencia a los argumentos de la interface
+    public event EventHandler<IHasProgress.OnProgressChangedEventArgs> OnProgressChanged;
 
     public event EventHandler OnCut;
 
@@ -35,7 +32,7 @@ public class CuttingCounter : BaseCounter
                     //Evento que actualiza la barra de progreso en la UI
                     CuttingRecipeSO cuttingRecipeSO = GetCuttingRecipeSOWithInput(GetKitchenObject().GetKitchenObjectSO());
 
-                    OnProgressChanged?.Invoke(this, new OnProgressChangedEventArgs
+                    OnProgressChanged?.Invoke(this, new IHasProgress.OnProgressChangedEventArgs
                     {
                         //Casteamos el primer valor a float para que el resultado no quede en un int
                         progressNormalized = (float) cuttingProgress / cuttingRecipeSO.cuttingProgressMax
@@ -73,7 +70,7 @@ public class CuttingCounter : BaseCounter
             OnCut?.Invoke(this, EventArgs.Empty);
             CuttingRecipeSO cuttingRecipeSO = GetCuttingRecipeSOWithInput(GetKitchenObject().GetKitchenObjectSO());
 
-            OnProgressChanged?.Invoke(this, new OnProgressChangedEventArgs
+            OnProgressChanged?.Invoke(this, new IHasProgress.OnProgressChangedEventArgs
             {
                 //Casteamos el primer valor a float para que el resultado no quede en un int
                 progressNormalized = (float)cuttingProgress / cuttingRecipeSO.cuttingProgressMax
