@@ -1,10 +1,17 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class FurnaceCounter : BaseCounter
 {
-    private enum State
+
+    public event EventHandler<OnStateChangedEventArgs> OnStateChanged;
+    public class OnStateChangedEventArgs : EventArgs
+    {
+        public State state;
+    }
+    public enum State
     {
         Idle,
         Baking,
@@ -43,12 +50,14 @@ public class FurnaceCounter : BaseCounter
                         //La masa está horneada                        
                         GetKitchenObject().DestroySelf();
                         KitchenObject.SpawnKitchenObject(bakingRecipeSO.output, this);  //Reemplazamos la masa cruda por masa horneada
-
-                        Debug.Log("Masa horneada");
                         
                         state = State.Baked;
                         burningTimer = 0f; //Inicializamos/resetamos el timer
                         burningRecipeSO = GetBurningRecipeSOWithInput(GetKitchenObject().GetKitchenObjectSO());
+
+                        OnStateChanged?.Invoke(this, new OnStateChangedEventArgs{
+                            state = state //state de este lado es el privado
+                        });
                     }
                     break;
                 case State.Baked:
@@ -60,14 +69,17 @@ public class FurnaceCounter : BaseCounter
                         GetKitchenObject().DestroySelf();
                         KitchenObject.SpawnKitchenObject(burningRecipeSO.output, this);  //Reemplazamos la masa hornada por la masa quemada
 
-                        Debug.Log("Masa quemada!");
                         state = State.Burnt;
+
+                        OnStateChanged?.Invoke(this, new OnStateChangedEventArgs
+                        {
+                            state = state
+                        });
                     }
                     break;
                 case State.Burnt:
                     break;
             }
-            Debug.Log(state);
         }            
     }
     public override void Interact(Player player)
@@ -86,6 +98,11 @@ public class FurnaceCounter : BaseCounter
 
                     state = State.Baking; //Cambiamos el estado del horno
                     bakingTimer = 0f; //Reseteamos el tiempo por si acaso
+
+                    OnStateChanged?.Invoke(this, new OnStateChangedEventArgs
+                    {
+                        state = state
+                    });
                 }
 
             }
@@ -106,6 +123,11 @@ public class FurnaceCounter : BaseCounter
                 //El jugador no tiene nada, saca el objeto del horno
                 GetKitchenObject().SetKitchenObjectParent(player);
                 state = State.Idle; //Reseteamos el estado del horno
+
+                OnStateChanged?.Invoke(this, new OnStateChangedEventArgs
+                {
+                    state = state
+                });
             }
         }
     }
