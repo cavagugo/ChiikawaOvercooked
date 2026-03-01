@@ -92,13 +92,13 @@ public class MixerCounter : BaseCounter, IHasProgress
     }
     public override void Interact(Player player)
     {
-        if (player.HasKitchenObject()) //El jugador tiene algo
+        if (player.HasKitchenObject() && state == State.Idle) //El jugador tiene algo Y la batidora está en Idle
         {
             TryAddIngredient(player.GetKitchenObject().GetKitchenObjectSO(), player);
         }
-        else //No tiene nada
+        else 
         {
-            if (state == State.Mixed) //Comprobamos si la batidora terminó
+            if (!player.HasKitchenObject() && state == State.Mixed) //Comprobamos si la batidora terminó Y el jugador no tiene nada
             {
                 //Ya terminó, lo puede agarrar
                 KitchenObject.SpawnKitchenObject(doughOutputKitchenObjectSO, player);
@@ -141,9 +141,8 @@ public class MixerCounter : BaseCounter, IHasProgress
                 kitchenObjectSO = kitchenObjectSO
             });
 
-            int maxIngredientsPerRecipe = 3;
 
-            if (kitchenObjectSOList.Count >= maxIngredientsPerRecipe)
+            if (kitchenObjectSOList.Count >= validKitchenObjectSOList.Count)
             {
                 state = State.Mixing;
             }
