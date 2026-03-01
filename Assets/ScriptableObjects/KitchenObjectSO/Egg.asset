@@ -10,8 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b886ac8bc9cc0174a9213afba04e5b21, type: 3}
-  m_Name: BlueberrySlices
+  m_Name: Egg
   m_EditorClassIdentifier: 
-  prefab: {fileID: 5342048224319183748, guid: 134f838e4f8cd75439c919e0469793ab, type: 3}
-  sprite: {fileID: 21300000, guid: adda3122ef5852a42b9d09369f35b0e5, type: 3}
-  objectName: Blueberry Slices
+  prefab: {fileID: 4931414286319970215, guid: 0ef19175ce06cfb4d8eb4db9b3f525a3, type: 3}
+  sprite: {fileID: 21300000, guid: e500672f2c86b0c40bcd09298a87661d, type: 3}
+  objectName: Egg
