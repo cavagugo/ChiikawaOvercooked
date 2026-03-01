@@ -52,6 +52,8 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 9cacb7df531500d4e90d4d7da7ab58aa, type: 2}
   - {fileID: 11400000, guid: 4be1a4f39d3384d40be35cc8663526c3, type: 2}
   - {fileID: 11400000, guid: 9eaa7de44a94e234582cbc67457ba235, type: 2}
+  glazedCakeKitchenObjectSO: {fileID: 11400000, guid: 6a73f8de5fb3070489f26c33b4b03945,
+    type: 2}
 --- !u!1001 &5307067648212098513
 PrefabInstance:
   m_ObjectHideFlags: 0
