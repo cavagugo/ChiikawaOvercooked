@@ -150,12 +150,37 @@ public class FurnaceCounter : BaseCounter, IHasProgress
             
             if (player.HasKitchenObject()) //El jugador tiene algo
             {
-                //No puede sacar el objeto
+
+                if (player.GetKitchenObject().TryGetPlate(out PlateKitchenObject plateKitchenObject)) //El jugador lleva un plato
+                {
+                    //Agregamos el ingrediente a la lista (un plato puede llevar varios ingredientes)
+                    if (plateKitchenObject.TryAddIngredient(GetKitchenObject().GetKitchenObjectSO()))
+                    {
+                        GetKitchenObject().DestroySelf(); //Se borra el item de la mesa
+
+
+                        OnPlayerGrabbedOrPlacedObject?.Invoke(this, EventArgs.Empty); //Abre y cierra el horno
+
+                        state = State.Idle; //Reseteamos el estado del horno
+
+                        OnStateChanged?.Invoke(this, new OnStateChangedEventArgs
+                        {
+                            state = state
+                        });
+
+                        OnProgressChanged?.Invoke(this, new IHasProgress.OnProgressChangedEventArgs
+                        {
+                            progressNormalized = 0f
+                        });
+                    }
+
+                }
             }
             else
             {
                 //El jugador no tiene nada, saca el objeto del horno
-                OnPlayerGrabbedOrPlacedObject?.Invoke(this, EventArgs.Empty);
+
+                OnPlayerGrabbedOrPlacedObject?.Invoke(this, EventArgs.Empty); ////Abre y cierra el horno
 
                 GetKitchenObject().SetKitchenObjectParent(player);
                 state = State.Idle; //Reseteamos el estado del horno

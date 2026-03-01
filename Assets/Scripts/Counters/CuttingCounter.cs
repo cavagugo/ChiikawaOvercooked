@@ -51,6 +51,16 @@ public class CuttingCounter : BaseCounter, IHasProgress
             if (player.HasKitchenObject())
             {
                 //El jugador tiene algo
+
+                if (player.GetKitchenObject().TryGetPlate(out PlateKitchenObject plateKitchenObject)) //El jugador lleva un plato
+                {
+                    //Agregamos el ingrediente a la lista (un plato puede llevar varios ingredientes)
+                    if (plateKitchenObject.TryAddIngredient(GetKitchenObject().GetKitchenObjectSO()))
+                    {
+                        GetKitchenObject().DestroySelf(); //Se borra el item de la mesa
+                    }
+
+                }
             }
             else
             {
