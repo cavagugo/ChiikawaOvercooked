@@ -155,4 +155,9 @@ public class MixerCounter : BaseCounter, IHasProgress
     {
         return kitchenObjectSOList.Count != 0;
     }
+
+    public List<KitchenObjectSO> GetKitchenObjectSOList()
+    {
+        return kitchenObjectSOList;
+    }
 }
