@@ -251,11 +251,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   kitchenObjectSO: {fileID: 11400000, guid: 112b036dc3c10e84ea772f7f6614c9cd, type: 2}
   validKitchenObjectSOList:
-  - {fileID: 11400000, guid: 6a73f8de5fb3070489f26c33b4b03945, type: 2}
+  - {fileID: 11400000, guid: bcca335dbee1d6945a8021ce9cf36d49, type: 2}
   - {fileID: 11400000, guid: 9cacb7df531500d4e90d4d7da7ab58aa, type: 2}
   - {fileID: 11400000, guid: 4be1a4f39d3384d40be35cc8663526c3, type: 2}
   - {fileID: 11400000, guid: 9eaa7de44a94e234582cbc67457ba235, type: 2}
-  glazedCakeKitchenObjectSO: {fileID: 11400000, guid: 6a73f8de5fb3070489f26c33b4b03945,
+  glazedCakeKitchenObjectSO: {fileID: 11400000, guid: bcca335dbee1d6945a8021ce9cf36d49,
     type: 2}
 --- !u!1 &8362157009624639620
 GameObject:
@@ -515,7 +515,7 @@ PrefabInstance:
         type: 3}
       propertyPath: kitchenObjectSOGameObjectList.Array.data[0].kitchenObjectSO
       value: 
-      objectReference: {fileID: 11400000, guid: 6a73f8de5fb3070489f26c33b4b03945,
+      objectReference: {fileID: 11400000, guid: bcca335dbee1d6945a8021ce9cf36d49,
         type: 2}
     - target: {fileID: 8575013132659476809, guid: 8cc46d2920bc1144ca2751575b58ac1c,
         type: 3}

@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1504880e1d86c1d4bb571db1283e9b43, type: 3}
+  m_Name: BakedDough-GlazedDough
+  m_EditorClassIdentifier: 
+  input: {fileID: 11400000, guid: 6a73f8de5fb3070489f26c33b4b03945, type: 2}
+  output: {fileID: 11400000, guid: bcca335dbee1d6945a8021ce9cf36d49, type: 2}
+  glazingProgressMax: 3
