@@ -7,6 +7,8 @@ public class MixerCounter : BaseCounter, IHasProgress
 {
     public event EventHandler<IHasProgress.OnProgressChangedEventArgs> OnProgressChanged;
 
+    public event EventHandler OnDoughGrabbed;
+
     //Hacemos el evento del mismo tipo que los argumentos
     public event EventHandler<OnIngredientAddedEventArgs> OnIngredientAdded;    
     //Definimos el argumento para pasar los ingredientes
@@ -115,6 +117,8 @@ public class MixerCounter : BaseCounter, IHasProgress
                 {
                     progressNormalized = 0f
                 });
+
+                OnDoughGrabbed?.Invoke(this, EventArgs.Empty);
             }
         }        
     }
@@ -145,13 +149,18 @@ public class MixerCounter : BaseCounter, IHasProgress
             if (kitchenObjectSOList.Count >= validKitchenObjectSOList.Count)
             {
                 state = State.Mixing;
+
+                OnStateChanged?.Invoke(this, new OnStateChangedEventArgs
+                {
+                    state = state
+                });
             }
             return true;
 
         }
     }
 
-    private bool HasIngredients()
+    public bool HasIngredients()
     {
         return kitchenObjectSOList.Count != 0;
     }
