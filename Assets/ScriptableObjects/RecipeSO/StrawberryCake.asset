@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: StrawberryCake
   m_EditorClassIdentifier: 
   kitchenObjectSOList:
-  - {fileID: 11400000, guid: 6a73f8de5fb3070489f26c33b4b03945, type: 2}
+  - {fileID: 11400000, guid: bcca335dbee1d6945a8021ce9cf36d49, type: 2}
   - {fileID: 11400000, guid: 9eaa7de44a94e234582cbc67457ba235, type: 2}
-  recipeName: Strawberry Cake
+  recipeName: Pastel de Fresa

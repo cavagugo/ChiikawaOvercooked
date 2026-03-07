@@ -65,7 +65,7 @@ public class MixerCounter : BaseCounter, IHasProgress
                         progressNormalized = mixingTimer / mixingTimerMax
                     });
 
-                    Debug.Log(mixingTimer);
+                    //Debug.Log(mixingTimer);
                     if (mixingTimer > mixingTimerMax) //Si el tiempo de batido supera el tiempo máximo
                     {
                         //La mezcla está lista
