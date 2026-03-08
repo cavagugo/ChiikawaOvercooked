@@ -8,6 +8,8 @@ public class DeliveryManager : MonoBehaviour
 
     public event EventHandler OnRecipeSpawned;
     public event EventHandler OnRecipeCompleted;
+    public event EventHandler OnRecipeSuccess;
+    public event EventHandler OnRecipeFailed;
 
     public static DeliveryManager Instance { get; private set; } //Usamos singleton 
 
@@ -17,6 +19,7 @@ public class DeliveryManager : MonoBehaviour
     private float spawnRecipeTimer;
     private float spawnRecipeTimerMax = 4f;
     private int waitingRecipesMax = 4;
+    private int successfulRecipesAmount;
 
     private void Awake()
     {
@@ -75,20 +78,29 @@ public class DeliveryManager : MonoBehaviour
             {
                 //El jugador entregó la orden correctamente
                 //Debug.Log("El jugador entregó la orden correctamente");
+
+                successfulRecipesAmount++;
                 waitingRecipeSOList.RemoveAt(i);
                  
                 OnRecipeCompleted?.Invoke(this, EventArgs.Empty);
+                OnRecipeSuccess?.Invoke(this, EventArgs.Empty);
                 return;
             }
         }
 
         //No se encontró coincidencia
         //El jugador entregó una orden INCORRECTA
-        Debug.Log("El jugador entregó una orden INCORRECTA");
+        //Debug.Log("El jugador entregó una orden INCORRECTA");
+        OnRecipeFailed?.Invoke(this, EventArgs.Empty);
     }
 
     public List<RecipeSO> GetWaitingRecipeSOList()
     {
         return waitingRecipeSOList;
+    }
+
+    public int GetSuccessfulRecipesAmount()
+    {
+        return successfulRecipesAmount;
     }
 }
