@@ -92,7 +92,7 @@ public class Player : MonoBehaviour, IKitchenObjectParent
 
             //Intentar solo movimiento en X
             Vector3 moveDirX = new Vector3(moveDir.x, 0, 0).normalized; //.normalized para que tenga la misma velocidad que si presionara solo A/D
-            canMove = moveDir.x!= 0 && !Physics.CapsuleCast(transform.position, transform.position + Vector3.up * playerHeight, playerRadius, moveDirX, moveDistance);
+            canMove = (moveDir.x < -0.5f || moveDir.x > +0.5f) && !Physics.CapsuleCast(transform.position, transform.position + Vector3.up * playerHeight, playerRadius, moveDirX, moveDistance);
             if (canMove)
             {
                 //Solo se puede mover en X
@@ -104,7 +104,7 @@ public class Player : MonoBehaviour, IKitchenObjectParent
 
                 //Intentar en movimiento solo Z
                 Vector3 moveDirZ = new Vector3(0, 0, moveDir.z).normalized;
-                canMove = moveDir.z != 0 && !Physics.CapsuleCast(transform.position, transform.position + Vector3.up * playerHeight, playerRadius, moveDirZ, moveDistance);
+                canMove = (moveDir.z < -0.5f || moveDir.z > +0.5f) && !Physics.CapsuleCast(transform.position, transform.position + Vector3.up * playerHeight, playerRadius, moveDirZ, moveDistance);
 
                 if (canMove)
                 {
