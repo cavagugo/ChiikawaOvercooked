@@ -13,13 +13,25 @@ MonoBehaviour:
   m_Name: AudioClipsRefsSO
   m_EditorClassIdentifier: 
   chop:
-  - {fileID: 8300000, guid: 0722f4afa0fae484684e90555d4c03a0, type: 3}
-  deliveryFailed: []
-  deliverySuccess: []
+  - {fileID: 8300000, guid: 5bf6a88451ab35f42b7076e6adfa2921, type: 3}
+  - {fileID: 8300000, guid: ab137a36dc05ce642ae902425203da1b, type: 3}
+  - {fileID: 8300000, guid: acce908797ac4c54091afa7753c099dc, type: 3}
+  deliveryFailed:
+  - {fileID: 8300000, guid: f7732d59afdb91347af2111be5b2a58a, type: 3}
+  deliverySuccess:
+  - {fileID: 8300000, guid: e326e9dea618f9c45bbecb44ed9409b1, type: 3}
+  - {fileID: 8300000, guid: 0eb72626e7c7a5243b1a20fba83eefdb, type: 3}
   footsteps: []
-  objectDrop: []
-  objectPickup: []
+  objectDrop:
+  - {fileID: 8300000, guid: 44d8860b695a13f45874543bff54b7ab, type: 3}
+  - {fileID: 8300000, guid: aedbbe9a4d35cbd4fbfb319e6907d42e, type: 3}
+  objectPickup:
+  - {fileID: 8300000, guid: 27798609f51c45d4a880df02a0113ce4, type: 3}
+  - {fileID: 8300000, guid: 64524f5e6b549a948812c2b5e9bbb4cd, type: 3}
   furnaceFlick: {fileID: 0}
+  mixerSpin: {fileID: 0}
   trash:
-  - {fileID: 8300000, guid: 893b54ae9bf4884478a2906ea9737a74, type: 3}
+  - {fileID: 8300000, guid: bad1c880229b6094896c5b31910e8bcb, type: 3}
   warning: []
+  glaze:
+  - {fileID: 8300000, guid: 773d75244b2171e46abad127a494f96b, type: 3}

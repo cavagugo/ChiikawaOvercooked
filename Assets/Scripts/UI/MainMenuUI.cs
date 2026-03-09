@@ -21,6 +21,8 @@ public class MainMenuUI : MonoBehaviour
         {
             QuitGame();
         });
+
+        Time.timeScale = 1.0f;
     }
 
     private void QuitGame()

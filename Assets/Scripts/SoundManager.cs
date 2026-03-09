@@ -6,22 +6,57 @@ public class SoundManager : MonoBehaviour
 {
 
     [SerializeField] private AudioClipsRefsSO audioClipsRefsSO;
+
+    [SerializeField] private Transform soundPosition;
     private void Start()
     {
         DeliveryManager.Instance.OnRecipeSuccess += DeliveryManager_OnRecipeSuccess;
         DeliveryManager.Instance.OnRecipeFailed += DeliveryManager_OnRecipeFailed;
+        CuttingCounter.OnAnyCut += CuttingCounter_OnAnyCut;
+        Player.Instance.OnPickedSomething += Player_OnPickedSomething;
+        BaseCounter.OnAnyObjectPlacedHere += BaseCounter_OnAnyObjectPlacedHere;
+        TrashCounter.OnAnyObjectTrashed += TrashCounter_OnAnyObjectTrashed;
+        GlazingCounter.OnAnyGlaze += GlazingCounter_OnAnyGlaze;
+    }
+
+    private void GlazingCounter_OnAnyGlaze(object sender, System.EventArgs e)
+    {
+        PlaySound(audioClipsRefsSO.glaze, soundPosition.transform.position);    
+    }
+
+    private void TrashCounter_OnAnyObjectTrashed(object sender, System.EventArgs e)
+    {
+        PlaySound(audioClipsRefsSO.trash, soundPosition.transform.position);
+    }
+
+    private void BaseCounter_OnAnyObjectPlacedHere(object sender, System.EventArgs e)
+    {
+        //float volume = 0.8f;
+        PlaySound(audioClipsRefsSO.objectDrop, soundPosition.transform.position);
+    }
+
+    private void Player_OnPickedSomething(object sender, System.EventArgs e)
+    {
+        //float volume = 0.8f;
+        PlaySound(audioClipsRefsSO.objectPickup, soundPosition.transform.position);
+    }
+
+    private void CuttingCounter_OnAnyCut(object sender, System.EventArgs e)
+    {
+        //float volume = 0.8f;
+        PlaySound(audioClipsRefsSO.chop, soundPosition.transform.position);
     }
 
     private void DeliveryManager_OnRecipeFailed(object sender, System.EventArgs e)
     {
-        DeliveryCounter deliveryCounter = DeliveryCounter.Instance;
-        PlaySound(audioClipsRefsSO.deliveryFailed, deliveryCounter.transform.position);
+        //DeliveryCounter deliveryCounter = DeliveryCounter.Instance;
+        PlaySound(audioClipsRefsSO.deliveryFailed, soundPosition.transform.position);
     }
 
     private void DeliveryManager_OnRecipeSuccess(object sender, System.EventArgs e)
     {
-        DeliveryCounter deliveryCounter = DeliveryCounter.Instance;
-        PlaySound(audioClipsRefsSO.deliverySuccess, deliveryCounter.transform.position);
+        //DeliveryCounter deliveryCounter = DeliveryCounter.Instance;
+        PlaySound(audioClipsRefsSO.deliverySuccess, soundPosition.transform.position);
     }
 
     private void PlaySound (AudioClip audioClip, Vector3 position, float volume = 1f) //volumen default a 1f

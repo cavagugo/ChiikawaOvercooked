@@ -15,4 +15,5 @@ public class AudioClipsRefsSO : ScriptableObject
     public AudioClip mixerSpin;
     public AudioClip[] trash;
     public AudioClip[] warning;
+    public AudioClip[] glaze;
 }

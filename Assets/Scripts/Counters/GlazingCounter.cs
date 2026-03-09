@@ -10,6 +10,7 @@ public class GlazingCounter : BaseCounter, IHasProgress
     public event EventHandler<IHasProgress.OnProgressChangedEventArgs> OnProgressChanged;
 
     public event EventHandler OnGlaze;
+    public static event EventHandler OnAnyGlaze;
 
 
     [SerializeField] private GlazingRecipeSO[] glazingRecipeSOArray;
@@ -78,6 +79,7 @@ public class GlazingCounter : BaseCounter, IHasProgress
             glazingProgress++;
 
             OnGlaze?.Invoke(this, EventArgs.Empty);
+            OnAnyGlaze?.Invoke(this, EventArgs.Empty);
             GlazingRecipeSO glazingRecipeSO = GetGlazingRecipeSOWithInput(GetKitchenObject().GetKitchenObjectSO());
 
             OnProgressChanged?.Invoke(this, new IHasProgress.OnProgressChangedEventArgs
