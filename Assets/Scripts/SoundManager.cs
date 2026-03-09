@@ -17,6 +17,12 @@ public class SoundManager : MonoBehaviour
         BaseCounter.OnAnyObjectPlacedHere += BaseCounter_OnAnyObjectPlacedHere;
         TrashCounter.OnAnyObjectTrashed += TrashCounter_OnAnyObjectTrashed;
         GlazingCounter.OnAnyGlaze += GlazingCounter_OnAnyGlaze;
+        MixerCounter.OnAnyIngredientAdded += MixerCounter_OnAnyIngredientAdded;
+    }
+
+    private void MixerCounter_OnAnyIngredientAdded(object sender, System.EventArgs e)
+    {
+        PlaySound(audioClipsRefsSO.placeItemOnMixer, soundPosition.transform.position);
     }
 
     private void GlazingCounter_OnAnyGlaze(object sender, System.EventArgs e)

@@ -9,8 +9,15 @@ public class MixerCounter : BaseCounter, IHasProgress
 
     public event EventHandler OnDoughGrabbed;
 
+    public static event EventHandler OnAnyIngredientAdded;
+    new public static void ResetStaticData()
+    {
+        OnAnyIngredientAdded = null;
+    }
+
     //Hacemos el evento del mismo tipo que los argumentos
-    public event EventHandler<OnIngredientAddedEventArgs> OnIngredientAdded;    
+    public event EventHandler<OnIngredientAddedEventArgs> OnIngredientAdded;
+    
     //Definimos el argumento para pasar los ingredientes
     public class OnIngredientAddedEventArgs : EventArgs
     {
@@ -144,7 +151,7 @@ public class MixerCounter : BaseCounter, IHasProgress
             {
                 kitchenObjectSO = kitchenObjectSO
             });
-
+            OnAnyIngredientAdded.Invoke(this, EventArgs.Empty);
 
             if (kitchenObjectSOList.Count >= validKitchenObjectSOList.Count)
             {

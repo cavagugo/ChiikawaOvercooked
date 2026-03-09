@@ -28,10 +28,12 @@ MonoBehaviour:
   objectPickup:
   - {fileID: 8300000, guid: 27798609f51c45d4a880df02a0113ce4, type: 3}
   - {fileID: 8300000, guid: 64524f5e6b549a948812c2b5e9bbb4cd, type: 3}
-  furnaceFlick: {fileID: 0}
-  mixerSpin: {fileID: 0}
+  furnaceFlick: {fileID: 8300000, guid: 2dfaff212e859854aa7bf79e72673351, type: 3}
+  mixerSpin: {fileID: 8300000, guid: 24bfbe57a7894ea498d8d3d83d1abae1, type: 3}
   trash:
   - {fileID: 8300000, guid: bad1c880229b6094896c5b31910e8bcb, type: 3}
   warning: []
   glaze:
   - {fileID: 8300000, guid: 773d75244b2171e46abad127a494f96b, type: 3}
+  placeItemOnMixer:
+  - {fileID: 8300000, guid: 37a57ca780f497b4c850c0f4b7fd37fa, type: 3}

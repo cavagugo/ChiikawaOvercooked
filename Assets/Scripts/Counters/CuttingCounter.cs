@@ -8,6 +8,11 @@ public class CuttingCounter : BaseCounter, IHasProgress
 
     public static event EventHandler OnAnyCut; //Usamos este porque tenemos varias instancias de un CuttingCounter
 
+    new public static void ResetStaticData()
+    {
+        OnAnyCut = null;
+    }
+
     //Hacer referencia a los argumentos de la interface
     public event EventHandler<IHasProgress.OnProgressChangedEventArgs> OnProgressChanged;
 
@@ -80,6 +85,7 @@ public class CuttingCounter : BaseCounter, IHasProgress
             cuttingProgress++;
 
             OnCut?.Invoke(this, EventArgs.Empty);
+            //Debug.Log(OnAnyCut.GetInvocationList().Length);
             OnAnyCut?.Invoke(this, EventArgs.Empty);
             CuttingRecipeSO cuttingRecipeSO = GetCuttingRecipeSOWithInput(GetKitchenObject().GetKitchenObjectSO());
 

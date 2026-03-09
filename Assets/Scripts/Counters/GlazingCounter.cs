@@ -12,6 +12,11 @@ public class GlazingCounter : BaseCounter, IHasProgress
     public event EventHandler OnGlaze;
     public static event EventHandler OnAnyGlaze;
 
+    new public static void ResetStaticData()
+    {
+        OnAnyGlaze = null;
+    }
+
 
     [SerializeField] private GlazingRecipeSO[] glazingRecipeSOArray;
 

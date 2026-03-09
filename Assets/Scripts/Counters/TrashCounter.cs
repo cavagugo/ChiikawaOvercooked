@@ -6,6 +6,13 @@ using UnityEngine;
 public class TrashCounter : BaseCounter
 {
     public static event EventHandler OnAnyObjectTrashed;
+
+    new public static void ResetStaticData()
+    {
+        OnAnyObjectTrashed = null;
+    }
+
+
     //Si el jugador tiene algo en la mano, lo destruye (desecha)
     public override void Interact(Player player)
     {
