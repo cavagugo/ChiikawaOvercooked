@@ -48,7 +48,7 @@ public class TutorialUI : MonoBehaviour
         GameInput.Instance.OnBindingRebind += GameInput_OnBindingRebind;
         GameManager.Instance.OnStateChanged += GameManager_OnStateChanged;
         currentPanel = firstPanel;
-        next.Select();
+        //next.Select();
         UpdatePanels();
         UpdateVisual();
         Show();
