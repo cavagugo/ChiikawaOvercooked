@@ -82,6 +82,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1796975394992361978, guid: 74a60f96f88374e4796369484f190d28,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.5
+      objectReference: {fileID: 0}
     - target: {fileID: 6203007588076269567, guid: 74a60f96f88374e4796369484f190d28,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -178,8 +183,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 45c041cc01ad281429b7fb8be27d0256, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  kitchenObjectSO: {fileID: 11400000, guid: 206c8e16bf0bb064aa6344fe24195a75, type: 2}
   counterTopPoint: {fileID: 3456772306287996162}
+  kitchenObjectSO: {fileID: 11400000, guid: 206c8e16bf0bb064aa6344fe24195a75, type: 2}
 --- !u!4 &6997834099255776007 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6203007588076269567, guid: 74a60f96f88374e4796369484f190d28,

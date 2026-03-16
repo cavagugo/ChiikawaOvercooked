@@ -7,7 +7,17 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
+      name: Lineas
+    second: {fileID: 2100000, guid: 5d5baf2f60fb3d341812758bba8acccd, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
       name: Material
+    second: {fileID: 2100000, guid: 11e3ca6e1e07f4b4f938f3f0a7243c91, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material.001
     second: {fileID: 2100000, guid: 11e3ca6e1e07f4b4f938f3f0a7243c91, type: 2}
   materials:
     materialImportMode: 2
