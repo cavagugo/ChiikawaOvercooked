@@ -92,6 +92,11 @@ public class SoundManager : MonoBehaviour
         PlaySound(audioClipsRefsSO.footsteps, soundPosition.transform.position);
     }
 
+    public void PlayKitchenTimerSound()
+    {
+        PlaySound(audioClipsRefsSO.kitchenTimer, soundPosition.transform.position);
+    }
+
 
 
 

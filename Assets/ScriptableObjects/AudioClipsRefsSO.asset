@@ -45,3 +45,4 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 9b3eb036891eb2f45bbd8574389d63d7, type: 3}
   - {fileID: 8300000, guid: 4563bc59f352d75409604d7045b18b98, type: 3}
   - {fileID: 8300000, guid: 27da8990accaaeb49ab14c6a15b113b7, type: 3}
+  kitchenTimer: {fileID: 8300000, guid: e54c52cee1c691b4c8303ebc670f1061, type: 3}

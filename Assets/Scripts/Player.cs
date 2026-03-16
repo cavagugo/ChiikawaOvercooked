@@ -41,6 +41,14 @@ public class Player : MonoBehaviour, IKitchenObjectParent
         //Listener al evento    
         gameInput.OnInteractAction += GameInput_OnInteractAction;
         gameInput.OnInteractAlternateAction += GameInput_OnInteractAlternateAction;
+        GameManager.Instance.OnStateChanged += GameManager_OnStateChanged;
+    }
+
+    private void GameManager_OnStateChanged(object sender, EventArgs e)
+    {
+        if (!GameManager.Instance.IsGamePlaying()){
+            isWalking = false;
+        }
     }
 
     private void GameInput_OnInteractAlternateAction(object sender, EventArgs e)
@@ -64,6 +72,7 @@ public class Player : MonoBehaviour, IKitchenObjectParent
     // Update is called once per frame
     void Update()
     {
+        if (!GameManager.Instance.IsGamePlaying()) return;
         HandleMovement();
         HandleInteractions();
     }
