@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: BurntDough
   m_EditorClassIdentifier: 
   prefab: {fileID: 4931414286319970215, guid: 2ef16e7cb048efd4999a0ef55940587d, type: 3}
-  sprite: {fileID: 0}
+  sprite: {fileID: 21300000, guid: b8465d551391eb143bad8808ad922e7e, type: 3}
   objectName: Burnt Dough

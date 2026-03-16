@@ -81,6 +81,24 @@ public class SoundManager : MonoBehaviour
         PlaySound(audioClipsRefsSO.countdownSound[soundIndex], soundPosition.transform.position);
     }
 
+    public void PlayWarningSound()
+    {
+        PlaySound(audioClipsRefsSO.warning, soundPosition.transform.position);
+    }
+
+
+    public void PlayFootstepsSound()
+    {
+        PlaySound(audioClipsRefsSO.footsteps, soundPosition.transform.position);
+    }
+
+
+
+
+
+
+
+
     private void PlaySound (AudioClip audioClip, Vector3 position, float volumeMultiplier = 1f) //volumen default a 1f
     {
         AudioSource.PlayClipAtPoint(audioClip, position, volumeMultiplier * volume);
@@ -91,6 +109,7 @@ public class SoundManager : MonoBehaviour
         PlaySound(audioClipArray[Random.Range(0,audioClipArray.Length)], position, volumeMultiplier * volume);
     }
 
+    
     public void ChangeVolume(float volume)
     {
         this.volume = volume;

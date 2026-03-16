@@ -14,7 +14,7 @@ public class AudioClipsRefsSO : ScriptableObject
     public AudioClip furnaceFlick;
     public AudioClip mixerSpin;
     public AudioClip[] trash;
-    public AudioClip[] warning;
+    public AudioClip warning;
     public AudioClip[] glaze;
     public AudioClip[] placeItemOnMixer;
     public AudioClip[] countdownSound;

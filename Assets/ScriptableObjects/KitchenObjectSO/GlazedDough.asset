@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: GlazedDough
   m_EditorClassIdentifier: 
   prefab: {fileID: 4931414286319970215, guid: 56aee6ff4e5777b4db18cd53070dc228, type: 3}
-  sprite: {fileID: 0}
+  sprite: {fileID: 21300000, guid: f88613345677404408fc6612a1183a26, type: 3}
   objectName: Glazed Dough

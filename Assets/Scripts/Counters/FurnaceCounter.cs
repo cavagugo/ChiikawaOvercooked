@@ -243,4 +243,9 @@ public class FurnaceCounter : BaseCounter, IHasProgress
         return null;
     }
 
+
+    public bool IsBaked()
+    {
+        return state == State.Baked;
+    }
 }

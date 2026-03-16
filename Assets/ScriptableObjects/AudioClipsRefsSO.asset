@@ -21,7 +21,10 @@ MonoBehaviour:
   deliverySuccess:
   - {fileID: 8300000, guid: e326e9dea618f9c45bbecb44ed9409b1, type: 3}
   - {fileID: 8300000, guid: 0eb72626e7c7a5243b1a20fba83eefdb, type: 3}
-  footsteps: []
+  footsteps:
+  - {fileID: 8300000, guid: ae571a43813a75541a8d3a51579c739b, type: 3}
+  - {fileID: 8300000, guid: 7c45cc8778928714a880de4b4c72bcdc, type: 3}
+  - {fileID: 8300000, guid: 08fbb944f571efb48a615aaccae287c8, type: 3}
   objectDrop:
   - {fileID: 8300000, guid: 44d8860b695a13f45874543bff54b7ab, type: 3}
   - {fileID: 8300000, guid: aedbbe9a4d35cbd4fbfb319e6907d42e, type: 3}
@@ -32,8 +35,13 @@ MonoBehaviour:
   mixerSpin: {fileID: 8300000, guid: 24bfbe57a7894ea498d8d3d83d1abae1, type: 3}
   trash:
   - {fileID: 8300000, guid: bad1c880229b6094896c5b31910e8bcb, type: 3}
-  warning: []
+  warning: {fileID: 8300000, guid: f2a7f5dcf9edee84e9def1c819b94c46, type: 3}
   glaze:
   - {fileID: 8300000, guid: 773d75244b2171e46abad127a494f96b, type: 3}
   placeItemOnMixer:
   - {fileID: 8300000, guid: 37a57ca780f497b4c850c0f4b7fd37fa, type: 3}
+  countdownSound:
+  - {fileID: 8300000, guid: 2c1e3e48d13ff4a4285cac96235682ff, type: 3}
+  - {fileID: 8300000, guid: 9b3eb036891eb2f45bbd8574389d63d7, type: 3}
+  - {fileID: 8300000, guid: 4563bc59f352d75409604d7045b18b98, type: 3}
+  - {fileID: 8300000, guid: 27da8990accaaeb49ab14c6a15b113b7, type: 3}

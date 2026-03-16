@@ -7,6 +7,8 @@ public class FurnaceCounterSound : MonoBehaviour
 
     [SerializeField] private FurnaceCounter furnaceCounter;
     private AudioSource audioSource;
+    private float warningSoundTimer;
+    private bool playWarningSound;
 
     private void Awake()
     {
@@ -16,6 +18,15 @@ public class FurnaceCounterSound : MonoBehaviour
     private void Start()
     {
         furnaceCounter.OnStateChanged += FurnaceCounter_OnStateChanged;
+        furnaceCounter.OnProgressChanged += FurnaceCounter_OnProgressChanged;
+    }
+
+    private void FurnaceCounter_OnProgressChanged(object sender, IHasProgress.OnProgressChangedEventArgs e)
+    {
+        float burnShowProgressAmount = 0.5f;
+        playWarningSound = furnaceCounter.IsBaked() && e.progressNormalized >= burnShowProgressAmount;
+
+
     }
 
     private void FurnaceCounter_OnStateChanged(object sender, FurnaceCounter.OnStateChangedEventArgs e)
@@ -29,6 +40,22 @@ public class FurnaceCounterSound : MonoBehaviour
         else
         {
             audioSource.Pause();
+        }       
+    }
+
+    private void Update()
+    {
+        if (playWarningSound)
+        {
+            warningSoundTimer -= Time.deltaTime;
+            if (warningSoundTimer <= 0f)
+            {
+                float warningSoundTimerMax = 1f;
+                warningSoundTimer = warningSoundTimerMax;
+
+                SoundManager.Instance.PlayWarningSound();
+            }
         }
+        
     }
 }

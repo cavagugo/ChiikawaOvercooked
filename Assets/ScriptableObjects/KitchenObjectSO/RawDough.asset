@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: RawDough
   m_EditorClassIdentifier: 
   prefab: {fileID: 4931414286319970215, guid: 99e3fcb5c8830f649a9820a4b2e9489a, type: 3}
-  sprite: {fileID: 0}
+  sprite: {fileID: 21300000, guid: 32d034387ce1f3a40909ff2fd9edf9fe, type: 3}
   objectName: Raw Dough
