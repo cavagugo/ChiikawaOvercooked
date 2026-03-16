@@ -7,7 +7,7 @@ public class DeliveryManager : MonoBehaviour
 {
 
     public event EventHandler OnRecipeSpawned;
-    public event EventHandler OnRecipeCompleted;
+    public event EventHandler<int> OnRecipeCompleted;
     public event EventHandler OnRecipeSuccess;
     public event EventHandler OnRecipeFailed;
 
@@ -33,7 +33,7 @@ public class DeliveryManager : MonoBehaviour
         if (spawnRecipeTimer <= 0f)
         {
             spawnRecipeTimer = spawnRecipeTimerMax;
-            //Limita el némero de órdenes
+            //Limita el número de órdenes
             if (GameManager.Instance.IsGamePlaying() && waitingRecipeSOList.Count < waitingRecipesMax)
             {
                 RecipeSO waitingRecipeSO = recipeListSO.recipeSOList[UnityEngine.Random.Range(0, recipeListSO.recipeSOList.Count)];
@@ -82,7 +82,7 @@ public class DeliveryManager : MonoBehaviour
                 successfulRecipesAmount++;
                 waitingRecipeSOList.RemoveAt(i);
                  
-                OnRecipeCompleted?.Invoke(this, EventArgs.Empty);
+                OnRecipeCompleted?.Invoke(this, i);
                 OnRecipeSuccess?.Invoke(this, EventArgs.Empty);
                 return;
             }

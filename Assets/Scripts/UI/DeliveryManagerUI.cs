@@ -6,6 +6,10 @@ public class DeliveryManagerUI : MonoBehaviour
 {
     [SerializeField] private Transform container;
     [SerializeField] private Transform recipeTemplate;
+    [SerializeField] private float completeAnimDuration = 0.5f;
+
+    // Espejo de la lista de espera, en orden de llegada
+    private List<(RecipeSO recipe, Transform card)> _spawnedCards = new();
 
     private void Awake()
     {
@@ -14,35 +18,37 @@ public class DeliveryManagerUI : MonoBehaviour
 
     private void Start()
     {
-        DeliveryManager.Instance.OnRecipeSpawned += DeliveryManager_OnRecipeSpawned;
-        DeliveryManager.Instance.OnRecipeCompleted += DeliveryManager_OnRecipeCompleted;
-
-        UpdateVisual();
+        DeliveryManager.Instance.OnRecipeSpawned += OnSpawned;
+        DeliveryManager.Instance.OnRecipeCompleted += OnCompleted;
     }
 
-    private void DeliveryManager_OnRecipeCompleted(object sender, System.EventArgs e)
+    private void OnSpawned(object sender, System.EventArgs e)
     {
-        UpdateVisual();
+        var list = DeliveryManager.Instance.GetWaitingRecipeSOList();
+        RecipeSO newRecipe = list[^1];
+
+        Transform card = Instantiate(recipeTemplate, container);
+        card.gameObject.SetActive(true);
+        card.GetComponent<DeliveryManagerSingleUI>().SetRecipeSO(newRecipe);
+        card.GetComponent<Animator>().SetTrigger("Spawn");
+
+        _spawnedCards.Add((newRecipe, card));
     }
 
-    private void DeliveryManager_OnRecipeSpawned(object sender, System.EventArgs e)
+    private void OnCompleted(object sender, int completedIndex)
     {
-        UpdateVisual();
+        if (completedIndex < 0 || completedIndex >= _spawnedCards.Count) return;
+
+        Transform card = _spawnedCards[completedIndex].card;
+        _spawnedCards.RemoveAt(completedIndex);
+
+        StartCoroutine(AnimateThenDestroy(card));
     }
 
-    private void UpdateVisual()
+    private IEnumerator AnimateThenDestroy(Transform card)
     {
-        foreach (Transform child in container)
-        {
-            if (child == recipeTemplate) continue;
-            Destroy(child.gameObject);
-        }
-
-        foreach (RecipeSO recipeSO in DeliveryManager.Instance.GetWaitingRecipeSOList())
-        {
-            Transform recipeTransform = Instantiate(recipeTemplate, container);
-            recipeTransform.gameObject.SetActive(true);
-            recipeTransform.GetComponent<DeliveryManagerSingleUI>().SetRecipeSO(recipeSO);
-        }
+        card.GetComponent<Animator>().SetTrigger("Complete");
+        yield return new WaitForSeconds(completeAnimDuration);
+        Destroy(card.gameObject);
     }
 }
