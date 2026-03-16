@@ -76,6 +76,11 @@ public class SoundManager : MonoBehaviour
         PlaySound(audioClipsRefsSO.deliverySuccess, soundPosition.transform.position);
     }
 
+    public void PlayCountdownSound(int soundIndex)
+    {
+        PlaySound(audioClipsRefsSO.countdownSound[soundIndex], soundPosition.transform.position);
+    }
+
     private void PlaySound (AudioClip audioClip, Vector3 position, float volumeMultiplier = 1f) //volumen default a 1f
     {
         AudioSource.PlayClipAtPoint(audioClip, position, volumeMultiplier * volume);

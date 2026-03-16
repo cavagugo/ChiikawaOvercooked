@@ -17,4 +17,5 @@ public class AudioClipsRefsSO : ScriptableObject
     public AudioClip[] warning;
     public AudioClip[] glaze;
     public AudioClip[] placeItemOnMixer;
+    public AudioClip[] countdownSound;
 }

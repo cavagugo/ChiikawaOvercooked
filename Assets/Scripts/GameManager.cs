@@ -19,7 +19,7 @@ public class GameManager : MonoBehaviour
     }
 
     private State state;
-    private float countdownToStartTimer = 3f; //Tipica cuenta regresiva de 3 segundos
+    private float countdownToStartTimer = 4f; //Tipica cuenta regresiva de 3 segundos + go
     [SerializeField] private float gamePlayingTimeMax = 150f; //duración de la partida
     private float gamePlayedTime; //Tiempo transcurrido
     private bool isPaused = false;
