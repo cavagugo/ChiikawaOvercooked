@@ -1,9 +1,15 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class SoundManager : MonoBehaviour
 {
+
+
+    public event EventHandler OnVolumeChanged;
+
+
     private const string PLAYER_PREFS_SFX_VOLUME = "SFXVolume";
     public static SoundManager Instance { get; private set; }
 
@@ -92,18 +98,6 @@ public class SoundManager : MonoBehaviour
         PlaySound(audioClipsRefsSO.footsteps, soundPosition.transform.position);
     }
 
-    public void PlayKitchenTimerSound()
-    {
-        PlaySound(audioClipsRefsSO.kitchenTimer, soundPosition.transform.position);
-    }
-
-
-
-
-
-
-
-
     private void PlaySound (AudioClip audioClip, Vector3 position, float volumeMultiplier = 1f) //volumen default a 1f
     {
         AudioSource.PlayClipAtPoint(audioClip, position, volumeMultiplier * volume);
@@ -111,7 +105,7 @@ public class SoundManager : MonoBehaviour
 
     private void PlaySound(AudioClip[] audioClipArray, Vector3 position, float volumeMultiplier = 1f) //volumen default a 1f
     {
-        PlaySound(audioClipArray[Random.Range(0,audioClipArray.Length)], position, volumeMultiplier * volume);
+        PlaySound(audioClipArray[UnityEngine.Random.Range(0,audioClipArray.Length)], position, volumeMultiplier * volume);
     }
 
     
@@ -119,7 +113,10 @@ public class SoundManager : MonoBehaviour
     {
         this.volume = volume;
 
+
         PlayerPrefs.SetFloat(PLAYER_PREFS_SFX_VOLUME, volume);
+
+        OnVolumeChanged?.Invoke(this, EventArgs.Empty);
         PlayerPrefs.Save();
     }
 

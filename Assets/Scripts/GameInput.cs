@@ -64,7 +64,11 @@ public class GameInput : MonoBehaviour
 
     private void Pause_performed(UnityEngine.InputSystem.InputAction.CallbackContext obj)
     {
-        OnPauseAction?.Invoke(this, EventArgs.Empty);
+        if (GameManager.Instance.IsGamePlaying())
+        {
+            OnPauseAction?.Invoke(this, EventArgs.Empty);
+        }
+
     }
 
     private void InteractAlternate_performed(UnityEngine.InputSystem.InputAction.CallbackContext obj)

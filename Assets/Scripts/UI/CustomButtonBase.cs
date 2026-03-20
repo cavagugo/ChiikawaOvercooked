@@ -7,10 +7,6 @@ public abstract class CustomButtonBase : MonoBehaviour,
     ISelectHandler, IDeselectHandler, ISubmitHandler
 {
 
-
-    [SerializeField] private AudioClip hoverSound;
-    [SerializeField] private AudioClip clickSound;
-
     public virtual void OnPointerEnter(PointerEventData eventData) { }
     public virtual void OnPointerClick(PointerEventData eventData) { }
     public virtual void OnPointerExit(PointerEventData eventData) { }

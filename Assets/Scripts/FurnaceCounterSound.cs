@@ -19,6 +19,12 @@ public class FurnaceCounterSound : MonoBehaviour
     {
         furnaceCounter.OnStateChanged += FurnaceCounter_OnStateChanged;
         furnaceCounter.OnProgressChanged += FurnaceCounter_OnProgressChanged;
+        SoundManager.Instance.OnVolumeChanged += SoundManager_OnVolumeChanged;
+    }
+
+    private void SoundManager_OnVolumeChanged(object sender, System.EventArgs e)
+    {
+        audioSource.volume = SoundManager.Instance.GetVolume();
     }
 
     private void FurnaceCounter_OnProgressChanged(object sender, IHasProgress.OnProgressChangedEventArgs e)

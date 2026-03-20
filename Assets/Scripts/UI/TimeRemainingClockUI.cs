@@ -33,7 +33,7 @@ public class TimeRemainingClockUI : MonoBehaviour
         {
             if (playSound)
             {
-                SoundManager.Instance.PlayKitchenTimerSound();
+                KitchenTimerSound.Instance.PlayKitchenTimerSound();
                 playSound = false;
             }
             timeRemaining.color = alarmColor;
