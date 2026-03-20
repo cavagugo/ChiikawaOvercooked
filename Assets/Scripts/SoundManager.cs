@@ -16,6 +16,7 @@ public class SoundManager : MonoBehaviour
     [SerializeField] private AudioClipsRefsSO audioClipsRefsSO;
 
     [SerializeField] private Transform soundPosition;
+    [SerializeField] private AudioSource uiAudioSource;
 
     private float volume = 1f;
 
@@ -97,6 +98,32 @@ public class SoundManager : MonoBehaviour
     {
         PlaySound(audioClipsRefsSO.footsteps, soundPosition.transform.position);
     }
+
+    public void PlayHover()
+    {
+        PlayUISound(audioClipsRefsSO.hover);
+    }
+
+    public void PlayClick()
+    {
+        PlayUISound(audioClipsRefsSO.click);
+    }
+
+    private void PlayUISound(AudioClip clip)
+    {
+        if (clip != null && uiAudioSource != null)
+        {
+            uiAudioSource.PlayOneShot(clip, volume);
+        }
+    }
+
+
+
+
+
+
+
+
 
     private void PlaySound (AudioClip audioClip, Vector3 position, float volumeMultiplier = 1f) //volumen default a 1f
     {

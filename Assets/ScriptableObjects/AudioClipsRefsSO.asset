@@ -46,3 +46,5 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 4563bc59f352d75409604d7045b18b98, type: 3}
   - {fileID: 8300000, guid: 27da8990accaaeb49ab14c6a15b113b7, type: 3}
   kitchenTimer: {fileID: 8300000, guid: e54c52cee1c691b4c8303ebc670f1061, type: 3}
+  hover: {fileID: 8300000, guid: 86df858fa4968be4e8b5ff3bcc548650, type: 3}
+  click: {fileID: 8300000, guid: b744dc1ede222514b83f0ea9113d4db3, type: 3}
